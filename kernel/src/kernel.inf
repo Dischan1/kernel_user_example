@@ -1,0 +1,77 @@
+;
+; process_name_spoofer.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System ; TODO: specify appropriate Class
+ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318} ; TODO: specify appropriate ClassGuid
+Provider=%ManufacturerName%
+CatalogFile=process_name_spoofer.cat
+DriverVer= ; TODO: set DriverVer in stampinf property pages
+PnpLockdown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+process_name_spoofer_Device_CoInstaller_CopyFiles = 11
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+process_name_spoofer.sys  = 1,,
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1 ; make sure the number matches with SourceDisksNames
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NT$ARCH$
+
+[Standard.NT$ARCH$]
+%process_name_spoofer.DeviceDesc%=process_name_spoofer_Device, Root\process_name_spoofer ; TODO: edit hw-id
+
+[process_name_spoofer_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+process_name_spoofer.sys
+
+;-------------- Service installation
+[process_name_spoofer_Device.NT.Services]
+AddService = process_name_spoofer,%SPSVCINST_ASSOCSERVICE%, process_name_spoofer_Service_Inst
+
+; -------------- process_name_spoofer driver install sections
+[process_name_spoofer_Service_Inst]
+DisplayName    = %process_name_spoofer.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\process_name_spoofer.sys
+
+;
+;--- process_name_spoofer_Device Coinstaller installation ------
+;
+
+[process_name_spoofer_Device.NT.CoInstallers]
+AddReg=process_name_spoofer_Device_CoInstaller_AddReg
+CopyFiles=process_name_spoofer_Device_CoInstaller_CopyFiles
+
+[process_name_spoofer_Device_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller"
+
+[process_name_spoofer_Device_CoInstaller_CopyFiles]
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
+
+[process_name_spoofer_Device.NT.Wdf]
+KmdfService =  process_name_spoofer, process_name_spoofer_wdfsect
+[process_name_spoofer_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+DiskName = "process_name_spoofer Installation Disk"
+process_name_spoofer.DeviceDesc = "process_name_spoofer Device"
+process_name_spoofer.SVCDESC = "process_name_spoofer Service"

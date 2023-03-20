@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\common\ntos.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\common.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\structs.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\executable_import.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\executable_info.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{e1ab2d17-eb43-4c20-9328-0b0d80e8dd9e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Inf Include="src\kernel.inf">
+      <Filter>src</Filter>
+    </Inf>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

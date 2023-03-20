@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DebuggerFlavor>WindowsRemoteDebugger</DebuggerFlavor>
+    <RemoteDebuggerServerName>DESKTOP-OAQLHA7</RemoteDebuggerServerName>
+    <RemoteDebuggerConnection>RemoteWithoutAuthentication</RemoteDebuggerConnection>
+    <RemoteDebuggerAttach>false</RemoteDebuggerAttach>
+    <RemoteDebuggerSQLDebugging>false</RemoteDebuggerSQLDebugging>
+    <RemoteDebuggerCommand>C:\remoteapp\user.exe</RemoteDebuggerCommand>
+    <RemoteDebuggerDebuggerType>NativeOnly</RemoteDebuggerDebuggerType>
+    <DeploymentDirectory>C:\remoteapp</DeploymentDirectory>
+    <RemoteDebuggerWorkingDirectory>C:\remoteapp</RemoteDebuggerWorkingDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DebuggerFlavor>WindowsRemoteDebugger</DebuggerFlavor>
+    <RemoteDebuggerServerName>DESKTOP-OAQLHA7</RemoteDebuggerServerName>
+    <RemoteDebuggerConnection>RemoteWithoutAuthentication</RemoteDebuggerConnection>
+    <RemoteDebuggerAttach>false</RemoteDebuggerAttach>
+    <RemoteDebuggerSQLDebugging>false</RemoteDebuggerSQLDebugging>
+    <RemoteDebuggerCommand>C:\remoteapp\user.exe</RemoteDebuggerCommand>
+    <RemoteDebuggerDebuggerType>NativeOnly</RemoteDebuggerDebuggerType>
+    <DeploymentDirectory>C:\remoteapp</DeploymentDirectory>
+    <RemoteDebuggerWorkingDirectory>C:\remoteapp</RemoteDebuggerWorkingDirectory>
+  </PropertyGroup>
+</Project>
